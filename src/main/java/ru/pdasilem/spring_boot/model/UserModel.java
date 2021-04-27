@@ -14,7 +14,7 @@ public class UserModel implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Long id;
     @Column(name = "ulogin")
     private String userLogin;
     @Column(name = "passw")

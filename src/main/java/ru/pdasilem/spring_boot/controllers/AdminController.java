@@ -43,7 +43,7 @@ public class AdminController {
                              @RequestParam("surName") String surName,
                              @RequestParam("age") Integer age,
                              @RequestParam("email") String email,
-                             @RequestParam("roles") long[] role) {
+                             @RequestParam("roles") Long[] role) {
         Set<Roles> roleSet = new HashSet<>();
         for (Long roles : role) {
             roleSet.add(roleService.findRoleById(roles));
@@ -53,20 +53,20 @@ public class AdminController {
     }
 
     @GetMapping("/{id}/update")
-    public String edit(Model model, @PathVariable("id") long id) {
+    public String edit(Model model, @PathVariable("id") Long id) {
         model.addAttribute("user", userService.showById(id));
         return "update";
     }
 
     @PatchMapping("/{id}")
-    public String updateUser(@PathVariable("id") long id,
+    public String updateUser(@PathVariable("id") Long id,
                              @RequestParam("userLogin") String userLogin,
                              @RequestParam("passw") String passw,
                              @RequestParam("name") String name,
                              @RequestParam("surName") String surName,
                              @RequestParam("age") Integer age,
                              @RequestParam("email") String email,
-                             @RequestParam("roles") long[] role) {
+                             @RequestParam("roles") Long[] role) {
         Set<Roles> roleSet = new HashSet<>();
         for (Long roles : role) {
             roleSet.add(roleService.findRoleById(roles));
@@ -77,14 +77,14 @@ public class AdminController {
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable("id") long id) {
+    public String delete(@PathVariable("id") Long id) {
         userService.delete(id);
         return "redirect:/admin";
     }
 
 
     @GetMapping("/{id}")
-    public String showUser(@PathVariable("id") long id, Model model) {
+    public String showUser(@PathVariable("id") Long id, Model model) {
         UserModel user = userService.showById(id);
         model.addAttribute("user", user);
         return "user";
