@@ -1,0 +1,93 @@
+package ru.pdasilem.spring_boot.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import ru.pdasilem.spring_boot.model.Roles;
+import ru.pdasilem.spring_boot.model.UserModel;
+import ru.pdasilem.spring_boot.service.RoleService;
+import ru.pdasilem.spring_boot.service.UserService;
+
+import java.util.HashSet;
+import java.util.Set;
+
+@Controller
+@RequestMapping("/admin")
+public class AdminController {
+
+    private final UserService userService;
+    private final RoleService roleService;
+
+
+    public AdminController(UserService userService, RoleService roleService) {
+        this.userService = userService;
+        this.roleService = roleService;
+    }
+
+    @GetMapping()
+    public String showAllUsers(Model model) {
+        model.addAttribute("users", userService.usersList());
+        return "users";
+    }
+
+    @GetMapping("/newuser")
+    public String newUser(Model model) {
+        model.addAttribute("user", new UserModel());
+        return "newuser";
+    }
+
+    @PostMapping("/newuser")
+    public String createUser(@RequestParam("userLogin") String userLogin,
+                             @RequestParam("passw") String passw,
+                             @RequestParam("name") String name,
+                             @RequestParam("surName") String surName,
+                             @RequestParam("age") Integer age,
+                             @RequestParam("email") String email,
+                             @RequestParam("roles") long[] role) {
+        Set<Roles> roleSet = new HashSet<>();
+        for (Long roles : role) {
+            roleSet.add(roleService.findRoleById(roles));
+        }
+        userService.save(new UserModel(userLogin, passw, name, surName, age, email, roleSet));
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/{id}/update")
+    public String edit(Model model, @PathVariable("id") long id) {
+        model.addAttribute("user", userService.showById(id));
+        return "update";
+    }
+
+    @PatchMapping("/{id}")
+    public String updateUser(@PathVariable("id") long id,
+                             @RequestParam("userLogin") String userLogin,
+                             @RequestParam("passw") String passw,
+                             @RequestParam("name") String name,
+                             @RequestParam("surName") String surName,
+                             @RequestParam("age") Integer age,
+                             @RequestParam("email") String email,
+                             @RequestParam("roles") long[] role) {
+        Set<Roles> roleSet = new HashSet<>();
+        for (Long roles : role) {
+            roleSet.add(roleService.findRoleById(roles));
+        }
+
+        userService.update(new UserModel(userLogin, passw, name, surName, age, email, roleSet), id);
+        return "redirect:/admin";
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") long id) {
+        userService.delete(id);
+        return "redirect:/admin";
+    }
+
+
+    @GetMapping("/{id}")
+    public String showUser(@PathVariable("id") long id, Model model) {
+        UserModel user = userService.showById(id);
+        model.addAttribute("user", user);
+        return "user";
+    }
+
+}
