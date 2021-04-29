@@ -1,10 +1,10 @@
-package ru.pdasilem.spring_boot.service;
+package ru.pdasilem.spring_bootstrap.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.pdasilem.spring_boot.repository.UserRepo;
+import ru.pdasilem.spring_bootstrap.repository.UserRepo;
 
 
 @Service

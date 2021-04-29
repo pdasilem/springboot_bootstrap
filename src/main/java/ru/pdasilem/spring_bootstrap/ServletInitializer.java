@@ -1,4 +1,4 @@
-package ru.pdasilem.spring_boot;
+package ru.pdasilem.spring_bootstrap;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

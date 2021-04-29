@@ -1,4 +1,4 @@
-package ru.pdasilem.spring_boot.model;
+package ru.pdasilem.spring_bootstrap.model;
 
 import org.springframework.security.core.GrantedAuthority;
 
@@ -16,7 +16,7 @@ public class Roles implements GrantedAuthority {
     @Column(name = "role")
     private String role;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "roles")
    private Set<UserModel> userModelSet;
 
     public Roles() {};

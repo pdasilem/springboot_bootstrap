@@ -1,7 +1,6 @@
-package ru.pdasilem.spring_boot.service;
+package ru.pdasilem.spring_bootstrap.service;
 
-import ru.pdasilem.spring_boot.model.Roles;
-import ru.pdasilem.spring_boot.model.UserModel;
+import ru.pdasilem.spring_bootstrap.model.UserModel;
 
 
 import java.util.List;

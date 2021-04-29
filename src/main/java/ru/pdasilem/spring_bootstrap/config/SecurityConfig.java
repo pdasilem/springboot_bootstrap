@@ -1,4 +1,4 @@
-package ru.pdasilem.spring_boot.config;
+package ru.pdasilem.spring_bootstrap.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,9 +14,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
-import ru.pdasilem.spring_boot.config.handler.LoginSuccessHandler;
+import ru.pdasilem.spring_bootstrap.config.handler.LoginSuccessHandler;
 
-import javax.servlet.ServletContext;
 import java.util.Arrays;
 
 @Configuration

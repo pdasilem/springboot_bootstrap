@@ -1,4 +1,4 @@
-package ru.pdasilem.spring_boot;
+package ru.pdasilem.spring_bootstrap;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

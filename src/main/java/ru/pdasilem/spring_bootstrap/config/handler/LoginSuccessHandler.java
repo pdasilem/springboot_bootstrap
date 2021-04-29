@@ -1,4 +1,4 @@
-package ru.pdasilem.spring_boot.config.handler;
+package ru.pdasilem.spring_bootstrap.config.handler;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;

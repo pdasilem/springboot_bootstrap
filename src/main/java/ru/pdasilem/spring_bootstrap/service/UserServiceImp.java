@@ -1,9 +1,9 @@
-package ru.pdasilem.spring_boot.service;
+package ru.pdasilem.spring_bootstrap.service;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.pdasilem.spring_boot.model.UserModel;
-import ru.pdasilem.spring_boot.repository.UserRepo;
+import ru.pdasilem.spring_bootstrap.model.UserModel;
+import ru.pdasilem.spring_bootstrap.repository.UserRepo;
 
 
 import javax.transaction.Transactional;
