@@ -12,9 +12,6 @@
 <form th:method="PATCH" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
   <div>
     <input type="hidden" name="id" th:field="*{id}" id="id"/>
-    <label for="uLogin">User login</label>
-    <input type="text" name="userLogin" th:value="${user.userLogin}" id="ulogin"/>
-    <br>
     <br>
     <label for="passw">Password</label>
     <input type="text" name="passw" th:value="${user.passw}" id="passw"/>

@@ -13,7 +13,6 @@
 <table border="1" cellpadding="10">
   <tr>
     <th>ID</th>
-    <th>Login</th>
     <th>Password</th>
     <th>Name</th>
     <th>Surname</th>
@@ -22,7 +21,6 @@
   </tr>
   <tr th:each ="user : ${users}">
     <td th:utext="${user.getId()}"></td>
-    <td th:utext="${user.getUserLogin()}"></td>
     <td th:utext="${user.getPassw()}"></td>
     <td th:utext="${user.getName()}"></td>
     <td th:utext="${user.getSurName()}"></td>

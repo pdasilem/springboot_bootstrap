@@ -51,14 +51,13 @@ public class UserServiceImp implements UserService{
         userModel.setAge(newUser.getAge());
         userModel.setName(newUser.getName());
         userModel.setSurName(newUser.getSurName());
-        userModel.setUserLogin(newUser.getUserLogin());
         userModel.setPassw(newUser.getPassw());
         userRepo.save(userModel);
     }
 
     @Override
-    public UserModel getUserByLogin(String uLogin) {
-        return userRepo.findByUserLogin(uLogin);
+    public UserModel getUserByLogin(String email) {
+        return userRepo.findByUserEmail(email);
     }
 
 

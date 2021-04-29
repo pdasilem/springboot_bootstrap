@@ -11,6 +11,6 @@ public interface UserService {
     void save(UserModel userModel);
     void delete(long id);
     void update(UserModel newUser, long id);
-    UserModel getUserByLogin(String uLogin);
+    UserModel getUserByLogin(String email);
 
 }

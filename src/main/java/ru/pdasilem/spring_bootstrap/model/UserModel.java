@@ -15,8 +15,6 @@ public class UserModel implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "ulogin")
-    private String userLogin;
     @Column(name = "passw")
     private String passw;
     @Column(name = "name")
@@ -25,7 +23,7 @@ public class UserModel implements UserDetails {
     private String surName;
     @Column(name = "age")
     private Integer age;
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
   //  @ManyToMany(fetch = FetchType.EAGER)
@@ -36,8 +34,7 @@ public class UserModel implements UserDetails {
 
     public UserModel(){}
 
-    public UserModel(String userLogin, String passw, String name, String surName, Integer age, String email, Set<Roles> roles) {
-        this.userLogin = userLogin;
+    public UserModel(String passw, String name, String surName, Integer age, String email, Set<Roles> roles) {
         this.passw = passw;
         this.name = name;
         this.surName = surName;
@@ -54,13 +51,6 @@ public class UserModel implements UserDetails {
         this.id = id;
     }
 
-    public String getUserLogin() {
-        return userLogin;
-    }
-
-    public void setUserLogin(String userLogin) {
-        this.userLogin = userLogin;
-    }
 
     public String getPassw() {
         return passw;
@@ -122,7 +112,7 @@ public class UserModel implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userLogin;
+        return email;
     }
 
     @Override

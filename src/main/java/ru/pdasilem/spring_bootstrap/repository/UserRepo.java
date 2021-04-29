@@ -14,6 +14,6 @@ import java.util.Optional;
 @Repository
 public interface UserRepo extends JpaRepository<UserModel, Long> {
 
-    @Query("select um FROM UserModel um inner JOIN FETCH um.roles where um.userLogin = :uLogin")
-    UserModel findByUserLogin(@Param("uLogin") String userLogin);
+    @Query("select um FROM UserModel um inner JOIN FETCH um.roles where um.email = :email")
+    UserModel findByUserEmail(@Param("email") String email);
 }

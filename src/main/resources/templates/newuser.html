@@ -12,9 +12,6 @@
 <form th:method="POST" th:action="@{/admin/newuser}" th:object="${user}">
   <div>
     <input type="hidden"  th:field="*{id}" id="id"/>
-    <label for="uLogin">User login</label>
-    <input type="text" name="userLogin" id="ulogin"/>
-    <br>
     <br>
     <label for="passw">Password</label>
     <input type="text" name="passw" id="passw"/>
