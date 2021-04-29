@@ -37,18 +37,13 @@ public class AdminController {
     }
 
     @PostMapping("/newuser")
-    public String createUser(@RequestParam("userLogin") String userLogin,
-                             @RequestParam("passw") String passw,
-                             @RequestParam("name") String name,
-                             @RequestParam("surName") String surName,
-                             @RequestParam("age") Integer age,
-                             @RequestParam("email") String email,
-                             @RequestParam("roles") Long[] role) {
+    public String createUser(@ModelAttribute("userModel") UserModel userModel, @RequestParam(value = "roles") Long[] role) {
         Set<Roles> roleSet = new HashSet<>();
         for (Long roles : role) {
             roleSet.add(roleService.findRoleById(roles));
         }
-        userService.save(new UserModel(userLogin, passw, name, surName, age, email, roleSet));
+        userModel.setRoles(roleSet);
+        userService.save(userModel);
         return "redirect:/admin";
     }
 
@@ -59,20 +54,13 @@ public class AdminController {
     }
 
     @PatchMapping("/{id}")
-    public String updateUser(@PathVariable("id") Long id,
-                             @RequestParam("userLogin") String userLogin,
-                             @RequestParam("passw") String passw,
-                             @RequestParam("name") String name,
-                             @RequestParam("surName") String surName,
-                             @RequestParam("age") Integer age,
-                             @RequestParam("email") String email,
-                             @RequestParam("roles") Long[] role) {
+    public String updateUser(@PathVariable("id") Long id, @ModelAttribute("userModel") UserModel userModel, @RequestParam(value = "roles") Long[] role) {
         Set<Roles> roleSet = new HashSet<>();
         for (Long roles : role) {
             roleSet.add(roleService.findRoleById(roles));
         }
-
-        userService.update(new UserModel(userLogin, passw, name, surName, age, email, roleSet), id);
+        userModel.setRoles(roleSet);
+        userService.update(userModel, id);
         return "redirect:/admin";
     }
 
