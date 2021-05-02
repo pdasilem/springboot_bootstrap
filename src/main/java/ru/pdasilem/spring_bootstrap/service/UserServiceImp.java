@@ -33,7 +33,7 @@ public class UserServiceImp implements UserService{
 
     @Override
     public void save(UserModel userModel) {
-        userModel.setPassw(new BCryptPasswordEncoder().encode(userModel.getPassword()));
+        userModel.setPassw(new BCryptPasswordEncoder().encode(userModel.getPassw()));
         userRepo.save(userModel);
     }
 
@@ -51,7 +51,8 @@ public class UserServiceImp implements UserService{
         userModel.setAge(newUser.getAge());
         userModel.setName(newUser.getName());
         userModel.setSurName(newUser.getSurName());
-        userModel.setPassw(newUser.getPassw());
+        userModel.setPassw(newUser.getPassword());
+        //        userModel.setPassw(new BCryptPasswordEncoder().encode(newUser.getPassword()));
         userRepo.save(userModel);
     }
 

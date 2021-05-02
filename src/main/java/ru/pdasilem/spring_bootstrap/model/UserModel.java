@@ -100,6 +100,15 @@ public class UserModel implements UserDetails {
         this.roles = roles;
     }
 
+    public String getRoleToString() {
+        StringBuilder roles = new StringBuilder();
+        for (Roles role : getRoles()) {
+            roles.append(role.getRole()
+                    .replaceAll("ROLE_", "") + " ");
+        }
+        return roles.toString();
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
