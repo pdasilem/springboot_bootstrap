@@ -44,16 +44,7 @@ public class UserServiceImp implements UserService{
 
     @Override
     public void update(UserModel newUser, long id) {
-        Optional<UserModel> userModelOpt = userRepo.findById(id);
-        UserModel userModel = userModelOpt.get();
-        userModel.setRoles(newUser.getRoles());
-        userModel.setEmail(newUser.getEmail());
-        userModel.setAge(newUser.getAge());
-        userModel.setName(newUser.getName());
-        userModel.setSurName(newUser.getSurName());
-        userModel.setPassw(newUser.getPassword());
-        //        userModel.setPassw(new BCryptPasswordEncoder().encode(newUser.getPassword()));
-        userRepo.save(userModel);
+        userRepo.save(newUser);
     }
 
     @Override

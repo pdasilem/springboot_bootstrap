@@ -90,7 +90,6 @@
                   <td th:utext="${user.getAge()}"></td>
                   <td th:utext="${user.getEmail()}"></td>
                   <td th:text="${user.getRoleToString()}"></td>
-
                   <td>
                     <button type="button" class="btn btn-info"
                             data-toggle="modal" data-target="#editModal"
@@ -130,7 +129,7 @@
                                   <div class="form-group">
                                     <label for="name">First name</label>
                                     <input class="form-control" type="text"
-                                           id="name" name="name"
+                                           name="name"
                                            th:value="${user.name}"/>
                                   </div>
 
@@ -138,28 +137,28 @@
                                     <label for="surName">Last name</label>
                                     <input class="form-control" type="text"
                                            th:value="${user.surName}"
-                                           id="surName" name="surName"/>
+                                           name="surName"/>
                                   </div>
 
                                   <div class="form-group">
                                     <label for="age">Age</label>
                                     <input class="form-control" type="number"
                                            th:value="${user.age}"
-                                           id="age" name="age"/>
+                                           name="age"/>
                                   </div>
 
                                   <div class="form-group">
                                     <label for="email">Email</label>
                                     <input class="form-control" type="email"
                                            th:value="${user.email}"
-                                           id="email" name="email"/>
+                                           name="email"/>
                                   </div>
 
                                   <div class="form-group">
-                                    <label for="password">Password</label>
+                                    <label for="passw">Password</label>
                                     <input class="form-control" type="password"
-                                           th:value="${user.passw}"
-                                           id="password" name="password"/>
+                                           th:value="${user.passw}" readonly
+                                           name="passw"/>
                                   </div>
 
                                   <div class="form-group">
@@ -308,29 +307,31 @@
                   <label for="name"><b>First name</b></label>
                   <div><input type="text" th:field="*{name}"
                               id="name" class="form-control"
-                              style="background-color: palegoldenrod"/>
+                              style="background-color: #ffc959"/>
                   </div>
                   <br>
                   <label for="surName"><b>Last name</b></label>
                   <div><input type="text" th:field="*{surName}"
                               id="surName" class="form-control"
-                              style="background-color: palegoldenrod"/>
+                              style="background-color: #ffc959"/>
                   </div>
                   <br>
                   <label for="age"><b>Age</b></label>
                   <div><input type="number" th:field="*{age}"
-                              class="form-control" id="age"/>
+                              class="form-control" id="age"
+                              style="background-color: #ffc959"/>
                   </div>
                   <br>
                   <label for="email"><b>Email</b></label>
                   <div><input type="email" th:field="*{email}" id="email"
                               class="form-control"
-                              style="background-color: palegoldenrod"/>
+                              style="background-color: #ffc959"/>
                   </div>
                   <br>
                   <label for="password"><b>Password</b></label>
                   <div><input type="password" th:field="*{passw}"
-                              class="form-control" id="password"/>
+                              class="form-control" id="password"
+                              style="background-color: #ffc959"/>
                   </div>
                   <br>
                   <div class="form-group">
